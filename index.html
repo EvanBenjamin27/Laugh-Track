@@ -1,14 +1,38 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laugh Track</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laughtrack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'Sintony';
+            src: url('Sintony-Regular.ttf') format('truetype');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Sintony';
+            src: url('Sintony-Bold.ttf') format('truetype');
+            font-weight: 700;
+        }
+
+        body {
+            background-image: url('bgv2.png');
+            background-repeat: repeat;
+            background-size: 1500px 1500px; /* zoomed tiling */
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #21356e;
+            font-family: 'Sintony', sans-serif;
+        }
+    </style>
 </head>
-<body>
-<h1>!!!Under Construction!!!</h1>
-<h3>search "Laugh Track" on github</h3>
+<body class="flex justify-center items-center h-screen">
+
+<div class="p-8 text-center rounded-2xl bg-white/20 backdrop-blur-sm shadow-xl">
+    <h1 class="text-3xl font-bold text-white drop-shadow-md">Beta release soon...</h1>
+</div>
+
 </body>
 </html>
