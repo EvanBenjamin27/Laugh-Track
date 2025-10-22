@@ -4,4 +4,4 @@ Laughtrack is a free online web game to play with friends where players anonymou
 
 ## Open Source Details
 
-All of laughtrack.live is open source but not all backend will be avalible until the day I end the project. When that day comes, instructions and all the nessesary code will be documented and released for self hosting servers.
+When I archive this project and forget about it one day I will release documentation in order to self hosting the game.
