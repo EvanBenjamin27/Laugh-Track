@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client</title>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+        // Firebase config (same as host)
+        const firebaseConfig = {
+            apiKey: "AIzaSyDaLWP8EarrDVH2sOtl43guC4K3ZkP5YxE",
+            authDomain: "laughtrack-4dd40.firebaseapp.com",
+            databaseURL: "https://laughtrack-4dd40-default-rtdb.firebaseio.com",
+            projectId: "laughtrack-4dd40",
+            storageBucket: "laughtrack-4dd40.firebasestorage.app",
+            messagingSenderId: "51868980662",
+            appId: "1:51868980662:web:0f0f869f6a4c513f069d17",
+            measurementId: "G-VNF8CSW4SM"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const channelRef = ref(db, "channels/myChannel/messages");
+
+        // Example user ID (could randomize)
+        const userID = "client_" + Math.floor(Math.random() * 10000);
+
+        // --- Buttons ---
+        function sendMessage(type, value) {
+            push(channelRef, {
+                userID,
+                messageType: type,
+                messageValue: value,
+                timestamp: Date.now()
+            });
+            console.log(`Sent ${type}: ${value}`);
+        }
+
+        window.submitAnswer = () => {
+            const textArea = document.getElementById("answerText");
+            const answer = textArea.value.trim();
+            sendMessage("submitAnswer", answer);
+            textArea.value = ""; // clear it
+            //document.getElementById('answerButton').style.display = 'none';
+        };
+
+        window.vote = () => {
+            sendMessage("vote", 5);
+            //document.getElementById('voteButton').style.display = 'none';wwwwww
+
+        }
+        window.randomAction = () => sendMessage("randomAction", "Triggered something random!");
+        //document.getElementById('answerButton').style.display = 'none';
+
+    </script>
+</head>
+<body>
+<h2>Client Controls</h2>
+
+<div id="answerButton">
+    <textarea id="answerText" rows="1" cols="50"></textarea>
+    <button onclick="submitAnswer()">Submit Answer</button>
+</div>
+
+<div id="voteButton">
+    <button onclick="vote()">Vote</button>
+</div>
+
+<button onclick="randomAction()">Random Action</button>
+</body>
+</html>
